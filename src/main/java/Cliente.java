@@ -3,9 +3,19 @@ import java.util.Observer;
 
 public class Cliente implements Observer {
     private final String nome;
-
-    public Cliente(String nome) {
+    private final String endereco;    
+    
+    public Cliente(String nome, String endereco) {
         this.nome = nome;
+        this.endereco = endereco;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void update(Observable o, Object arg) {

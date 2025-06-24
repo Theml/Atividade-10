@@ -5,6 +5,7 @@ public abstract class Pedido extends Observable {
     protected int id;
     protected Cliente cliente;
     protected PedidoState estado;
+    private double valorTotal;
     private LocalDateTime dataAgendamento;
     private LocalDateTime dataEntrega;
 
@@ -66,8 +67,20 @@ public abstract class Pedido extends Observable {
         return estado;
     }
 
+    public double getValorTotal() {
+        return valorTotal;
+    }
+    
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public int getId(){
         return id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public void adicionarItem(ItemPedido item) {
