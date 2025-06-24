@@ -23,73 +23,59 @@ Este projeto foi desenvolvido totalmente com fins acadêmicos para demonstrar o 
 
 ---
 
-## 1. Padrão Singleton
+## 1. Singleton Pattern 🏢
 
-O `SistemaIFood.java`: Implementa o padrão Singleton
+Classe: SistemaIFood
+Propósito: Garantir uma única instância do sistema central
+Benefício: Controle centralizado de todos os pedidos e operações
 
-- Construtor privado
-- Variável estática `instance`
-- Método `getInstance()` para acessar a instância
+## 2. Factory Method Pattern 🏭
 
-## 2. Padrão Factory Method
+Classes: PedidoFactory, PedidoRestauranteFactory, PedidoMercadoFactory, PedidoFarmaciaFactory
+Propósito: Criar diferentes tipos de pedidos sem especificar classes concretas
+Benefício: Facilita extensão para novos tipos de estabelecimentos
 
-O `PedidoFactory.java`: Implementa o padrão Factory Method 
+## 3. State Pattern 🔄
 
-- Interface base com método `criarPedido()`
-- Factories concretas:
-  - `PedidoRestauranteFactory`
-  - `PedidoMercadoFactory`
-  - `PedidoFarmaciaFactory`
+Classes: PedidoState, EstadoAgendado, EstadoEntregue, EstadoCancelado
+Propósito: Gerenciar mudanças de comportamento baseadas no estado do pedido
+Benefício: Transições controladas e comportamentos específicos por estado
 
-## 3. Padrão State
+## 4. Observer Pattern 👁️
 
-O padrão State é implementado através de:
+Classes: Cliente (Observer), Pedido (Observable)
+Propósito: Notificar clientes automaticamente sobre mudanças no pedido
+Benefício: Comunicação desacoplada e automática
 
-- `PedidoState.java`: Interface que define o comportamento comum para todos os estados
-- Estados concretos:
-  - `EstadoAgendado.java`: Quando o pedido está agendado
-  - `EstadoEntregue.java`: Quando o pedido foi entregue
-  - `EstadoCancelado.java`: Quando o pedido foi cancelado
+## 5. Strategy Pattern 💳
 
-Cada estado implementa:
-- Sua própria lógica no método `processarPedido()`
-- O método `getNomeEstado()` para identificação
-- A classe `Pedido` contém uma referência ao estado atual e delega o comportamento
+Classes: PagamentoStrategy, PagamentoCartao, PagamentoPix, PagamentoDinheiro
+Propósito: Alternar entre diferentes algoritmos de pagamento
+Benefício: Flexibilidade para adicionar novos métodos de pagamento
 
-## 4. Padrão Observer
+## 6. Decorator Pattern 🎁
 
-Implementado usando a API Java padrão:
-- `java.util.Observable`: Estendida pela classe `Pedido`
-- `java.util.Observer`: Implementada pela classe `Cliente`
-- Notificações automáticas quando o pedido muda de estado
+Classes: ItemPedido, ComplementoDecorator, QueijoExtra, BaconExtra, EmbalagemEspecial
+Propósito: Adicionar funcionalidades aos itens dinamicamente
+Benefício: Combinações flexíveis de complementos sem explosão de classes
 
-## 5.Padrão Strategy
+## 7. Command Pattern ⚡
 
-O padrão Strategy é implementado através de: 
-- `PagamentoStrategy.java`: Interface que define o comportamento comum do pagamento.
-- `PagamentoPix.java`: Quando o pagamento é em Pix
-- `PagamentoCartao.java`: Quando o pagamento é em Cartao
-- `PagamentoDinheiro.java`: Quando o pagamento é em Dinheiro
+Classes: Command, CancelarPedidoCommand, EntregarPedidoCommand, GerenciadorComandos
+Propósito: Encapsular operações como objetos, permitindo undo/redo
+Benefício: Histórico de operações e capacidade de reverter ações
 
-## 6. Padrão Decorator
+## 8. Template Method Pattern 📋
 
-O padrão Decorator é implementado através de:
-- `ComplementoDecorator.java`: Classe abstrata
+Classes: ProcessadorPedido, ProcessadorRestaurante, ProcessadorFarmacia, ProcessadorMercado
+Propósito: Definir esqueleto do algoritmo, permitindo variações em subclasses
+Benefício: Código reutilizável com pontos de customização específicos
 
-## 7. Padrão Command
+## 9. Chain of Responsibility Pattern 🔗
 
-O padrão Command é implementado através de:
-- ``
-
-## 8. Padrão Template Method
-
-O padrão Template Method é implementado através de:
-- ``
-
-## 9. Padrão Chain of Responsability
-
-O padrão Chain of Responsability é implementado através de:
-- ``
+Classes: ValidadorPedido, ValidadorDisponibilidade, ValidadorPagamento, ValidadorEntrega
+Propósito: Processar requisições através de uma cadeia de handlers
+Benefício: Validações modulares e extensíveis
 
 ## Fluxo de funcionamento
 
